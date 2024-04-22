@@ -8,7 +8,8 @@ import axios from "axios";
 import {jwtDecode} from "jwt-decode";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { useCookies } from "react-cookie";
-const url = "http://localhost:3000/api";
+
+const url = import.meta.env.VITE_APP_BACKEND_URL;
 
 type Admin = {
   name: string,

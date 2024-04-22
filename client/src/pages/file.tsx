@@ -24,8 +24,8 @@ import { useCookies } from "react-cookie";
 import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "@/components/ui/use-toast";
 
-const url = "http://localhost:3000/api";
-const url2 = "http://localhost:3000";
+const url = import.meta.env.VITE_APP_BACKEND_URL;
+const url2 = import.meta.env.VITE_APP_BACKEND_URL2;
 
 type FileData = {
   _id: string;

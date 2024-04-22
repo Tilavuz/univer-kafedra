@@ -38,8 +38,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Textarea } from "@/components/ui/textarea";
 import { Link } from "react-router-dom";
 
-const url = "http://localhost:3000/api";
-const url2 = "http://localhost:3000";
+
+const url = import.meta.env.VITE_APP_BACKEND_URL;
+const url2 = import.meta.env.VITE_APP_BACKEND_URL2;
 
 
 type FileData = {

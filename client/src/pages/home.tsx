@@ -14,7 +14,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Button } from "@/components/ui/button";
 import { Eye } from "lucide-react";
 
-const url = "http://localhost:3000/api";
+const url = import.meta.env.VITE_APP_BACKEND_URL;
 
 
 type FileData = {

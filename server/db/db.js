@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
-
+const base = process.env.BASE
 
 const db = async () => {
-    mongoose.connect('mongodb://127.0.0.1:27017/kafedra')
+    mongoose.connect(base)
         .then(() => {
             console.log('Connected to the base');
         })

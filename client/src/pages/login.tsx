@@ -16,7 +16,7 @@ import { useCookies } from "react-cookie";
 import { useToast } from "@/components/ui/use-toast";
 import { Toaster } from "@/components/ui/toaster";
 
-const url = "http://localhost:3000/api";
+const url = import.meta.env.VITE_APP_BACKEND_URL;
 
 export default function Login() {
   const regName = useRef<HTMLInputElement>(null);
