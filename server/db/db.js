@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const base = process.env.BASE
-
 const db = async () => {
     mongoose.connect(base)
         .then(() => {
