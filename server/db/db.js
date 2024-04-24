@@ -5,8 +5,8 @@ const db = async () => {
         .then(() => {
             console.log('Connected to the base');
         })
-        .catch(() => {
-            console.log('not connected to the base');
+        .catch((err) => {
+            console.log('not connected to the base', err);
         })
 }
 
