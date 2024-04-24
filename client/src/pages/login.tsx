@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@radix-ui/react-label";
 import axios from "axios";
-import { MouseEvent, useRef } from "react";
+import { MouseEvent, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { useToast } from "@/components/ui/use-toast";
@@ -26,12 +26,14 @@ export default function Login() {
   const logInPass = useRef<HTMLInputElement>(null);
   const [, setCookies] = useCookies(["accessToken"]);
   const { toast } = useToast();
+  const [pending, setPending] = useState<boolean>(false)
 
   const navigate = useNavigate();
 
   const registration = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
+      setPending(true)
       const regData = {
         name: regName.current?.value,
         departmentName: regDepartmentName.current?.value,
@@ -46,6 +48,8 @@ export default function Login() {
       }
     } catch (err) {
       console.log(err);
+    }finally{
+      setPending(false)
     }
   };
 
@@ -160,7 +164,7 @@ export default function Login() {
                   placeholder="password"
                 />
 
-                <Button onClick={(e) => registration(e)}>Kirish</Button>
+                <Button onClick={(e) => registration(e)}>{pending ? 'Loading...' : 'Kirish'}</Button>
               </form>
             </CardContent>
           </Card>
